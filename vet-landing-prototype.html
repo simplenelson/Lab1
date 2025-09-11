@@ -6,6 +6,57 @@
     <title>Pawsitive Care - Virtual Vet Clinic</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
     <style>
+        /* Modal Styles */
+        .modal-bg {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.4);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 16px;
+            max-width: 400px;
+            width: 90%;
+            margin: auto;
+            position: relative;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        .modal-btn {
+            background: #ffb347;
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(43,183,167,0.1);
+            margin-left: 1rem;
+        }
+        .modal-btn:first-child {
+            margin-left: 0;
+        }
+        .emergency-icon {
+            background: #fff;
+            border-radius: 8px;
+            padding: 4px;
+            width: 48px;
+            height: 48px;
+        }
         body {
             font-family: 'Montserrat', Arial, sans-serif;
             margin: 0;
@@ -159,8 +210,8 @@
     <section class="hero">
         <h1>Care for Your Pets, Virtually!</h1>
         <p>Expert veterinary care from the comfort of your home. Book a virtual appointment today and keep your furry friends healthy and happy!</p>
-    <button onclick="openBookingModal()">Book Appointment</button>
-    <button onclick="openDoctorModal()" style="background:#ffb347;color:#fff;border:none;padding:1rem 2rem;font-size:1.1rem;border-radius:30px;cursor:pointer;font-weight:700;box-shadow:0 2px 8px rgba(43,183,167,0.1);margin-left:1rem;">Set Doctor Availability</button>
+    <button onclick="openBookingModal()" class="modal-btn">Book Appointment</button>
+    <button onclick="openDoctorModal()" class="modal-btn">Set Doctor Availability</button>
     </section>
     <section class="services" id="services">
         <div class="service">
@@ -174,7 +225,7 @@
             <p>Get your pet’s medication delivered to your door.</p>
         </div>
         <div class="service">
-            <img src="https://openmoji.org/data/color/svg/1F6D1.svg" alt="Emergency" style="background:#fff;border-radius:8px;padding:4px;width:48px;height:48px;">
+            <img src="https://openmoji.org/data/color/svg/1F6D1.svg" alt="Emergency" class="emergency-icon">
             <h3>Emergency Advice</h3>
             <p>Immediate help for urgent pet health concerns.</p>
         </div>
@@ -214,32 +265,32 @@
         </section>
 
         <!-- Booking Modal -->
-        <div id="bookingModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:1000;align-items:center;justify-content:center;">
-            <div style="background:#fff;padding:2rem;border-radius:16px;max-width:400px;width:90%;margin:auto;position:relative;">
-                <span style="position:absolute;top:10px;right:20px;cursor:pointer;font-size:1.5rem;" onclick="closeBookingModal()">&times;</span>
+        <div id="bookingModal" class="modal-bg">
+            <div class="modal-content">
+                <span class="modal-close" onclick="closeBookingModal()">&times;</span>
                 <h3>Book Appointment</h3>
                 <form id="bookingForm">
                     <input type="text" name="petOwner" placeholder="Your Name" required><br>
                     <input type="email" name="email" placeholder="Your Email" required><br>
-                    <select name="doctor" id="doctorSelect" required style="width:100%;margin:0.5rem 0;padding:0.7rem;border-radius:8px;border:none;"></select><br>
-                    <select name="slot" id="slotSelect" required style="width:100%;margin:0.5rem 0;padding:0.7rem;border-radius:8px;border:none;"></select><br>
+                    <select name="doctor" id="doctorSelect" required></select><br>
+                    <select name="slot" id="slotSelect" required></select><br>
                     <textarea name="bookingInfo" rows="2" placeholder="Additional information about your booking (e.g., pet symptoms, preferred doctor, etc.)"></textarea><br>
-                    <button type="submit" style="margin-top:1rem;background:#2bb7a7;color:#fff;border:none;padding:0.7rem 2rem;border-radius:30px;cursor:pointer;font-weight:700;">Book</button>
+                    <button type="submit" class="modal-btn" style="background:#2bb7a7;">Book</button>
                 </form>
                 <div id="bookingMsg" style="margin-top:1rem;"></div>
             </div>
         </div>
 
         <!-- Doctor Availability Modal -->
-        <div id="doctorModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:1000;align-items:center;justify-content:center;">
-            <div style="background:#fff;padding:2rem;border-radius:16px;max-width:400px;width:90%;margin:auto;position:relative;">
-                <span style="position:absolute;top:10px;right:20px;cursor:pointer;font-size:1.5rem;" onclick="closeDoctorModal()">&times;</span>
+        <div id="doctorModal" class="modal-bg">
+            <div class="modal-content">
+                <span class="modal-close" onclick="closeDoctorModal()">&times;</span>
                 <h3>Doctor: Set Availability</h3>
                 <form id="availabilityForm">
                     <input type="text" name="doctorName" placeholder="Doctor Name" required><br>
                     <input type="date" name="date" required><br>
                     <input type="time" name="time" required><br>
-                    <button type="submit" style="margin-top:1rem;background:#ffb347;color:#fff;border:none;padding:0.7rem 2rem;border-radius:30px;cursor:pointer;font-weight:700;">Add Slot</button>
+                    <button type="submit" class="modal-btn">Add Slot</button>
                 </form>
                 <div id="availabilityMsg" style="margin-top:1rem;"></div>
                 <div id="doctorSlots" style="margin-top:1rem;"></div>
@@ -322,8 +373,10 @@
                 document.getElementById('bookingMsg').textContent = 'Please select a doctor and slot.';
                 return;
             }
+            // Use timestamp for unique booking ID
+            const bookingId = 'B' + Date.now() + Math.floor(Math.random()*1000);
             appointments.push({
-                id: appointments.length + 1,
+                id: bookingId,
                 doctorId: Number(doctorId),
                 petOwnerName: petOwner,
                 email,

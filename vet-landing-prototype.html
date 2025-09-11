@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawsitive Care - Virtual Vet Clinic</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            background: #f6fbf9;
+            color: #333;
+        }
+        header {
+            background: #2bb7a7;
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        nav {
+            margin-top: 1rem;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .hero {
+            background: linear-gradient(90deg, #2bb7a7 60%, #f6fbf9 100%);
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .hero button {
+            background: #ffb347;
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(43,183,167,0.1);
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem 1rem;
+            background: #fff;
+        }
+        .service {
+            background: #f6fbf9;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(43,183,167,0.08);
+            padding: 1.5rem;
+            width: 220px;
+            text-align: center;
+        }
+        .service img {
+            width: 48px;
+            margin-bottom: 1rem;
+        }
+        .how-it-works {
+            background: #eafaf6;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .step {
+            background: #fff;
+            border-radius: 16px;
+            padding: 1rem;
+            width: 160px;
+            box-shadow: 0 2px 8px rgba(43,183,167,0.08);
+        }
+        .testimonials {
+            padding: 2rem 1rem;
+            background: #fff;
+            text-align: center;
+        }
+        .testimonial {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        .contact {
+            background: #2bb7a7;
+            color: #fff;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        .contact-form {
+            margin-top: 1rem;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 80%;
+            padding: 0.7rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            border: none;
+        }
+        .contact-form button {
+            background: #ffb347;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        .social {
+            margin: 0.5rem 0;
+        }
+        .social a {
+            color: #ffb347;
+            margin: 0 0.5rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        @media (max-width: 700px) {
+            .services, .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Pawsitive Care Vet Clinic</h2>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#services">Services</a>
+            <a href="#book">Book Appointment</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Care for Your Pets, Virtually!</h1>
+        <p>Expert veterinary care from the comfort of your home. Book a virtual appointment today and keep your furry friends healthy and happy!</p>
+        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Book Now</button>
+    </section>
+    <section class="services" id="services">
+        <div class="service">
+            <img src="https://img.icons8.com/color/96/000000/dog.png" alt="Consultation">
+            <h3>Virtual Consultations</h3>
+            <p>Connect with our vets for real-time advice and care.</p>
+        </div>
+        <div class="service">
+            <img src="https://img.icons8.com/color/96/000000/pill.png" alt="Prescriptions">
+            <h3>Prescription Refills</h3>
+            <p>Get your pet’s medication delivered to your door.</p>
+        </div>
+        <div class="service">
+            <img src="https://img.icons8.com/color/96/000000/first-aid-kit.png" alt="Emergency">
+            <h3>Emergency Advice</h3>
+            <p>Immediate help for urgent pet health concerns.</p>
+        </div>
+    </section>
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <h4>1. Book</h4>
+                <p>Choose a time and service online.</p>
+            </div>
+            <div class="step">
+                <h4>2. Consult</h4>
+                <p>Meet your vet virtually via video call.</p>
+            </div>
+            <div class="step">
+                <h4>3. Care</h4>
+                <p>Get expert advice and follow-up care.</p>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial">“Booking a virtual appointment was so easy, and my dog got the care he needed!” – Jamie L.</div>
+        <div class="testimonial">“The vets are friendly and knowledgeable. Highly recommend!” – Alex P.</div>
+    </section>
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@pawsitivecare.com | Phone: (555) 123-4567</p>
+        <form class="contact-form" id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required><br>
+            <input type="email" name="email" placeholder="Your Email" required><br>
+            <textarea name="message" rows="3" placeholder="Your Message" required></textarea><br>
+            <button type="submit">Send</button>
+        </form>
+        <div id="formMsg" style="margin-top:1rem;"></div>
+    </section>
+    <footer>
+        <div class="social">
+            <a href="#" title="Facebook">&#x1F426;</a>
+            <a href="#" title="Instagram">&#x1F431;</a>
+            <a href="#" title="Twitter">&#x1F43E;</a>
+        </div>
+        <div>&copy; 2025 Pawsitive Care Vet Clinic</div>
+    </footer>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('formMsg').textContent = 'Thank you for reaching out! We will get back to you soon.';
+            document.getElementById('contactForm').reset();
+        });
+    </script>
+</body>
+</html>

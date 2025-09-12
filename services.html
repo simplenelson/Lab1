@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinary Services - Pawsitive Care</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            background: #f6fbf9;
+            color: #333;
+        }
+        header {
+            background: #2bb7a7;
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        nav {
+            margin-top: 1rem;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .services {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(43,183,167,0.08);
+        }
+        .service {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .service img {
+            width: 120px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(43,183,167,0.12);
+        }
+        .service-details {
+            flex: 1;
+        }
+        .service-details h2 {
+            margin-top: 0;
+            color: #2bb7a7;
+        }
+        .service-details ul {
+            margin: 0.5rem 0 0 1rem;
+        }
+        @media (max-width: 700px) {
+            .service {
+                flex-direction: column;
+                align-items: center;
+            }
+            .service img {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pawsitive Care Vet Clinic</h1>
+        <nav>
+            <a href="vet-landing-prototype.html">Home</a>
+            <a href="services.html">Services</a>
+               <a href="book-appointment.html">Book Appointment</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+            <!-- Booking Modal -->
+            <div id="bookingModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:1000;align-items:center;justify-content:center;">
+                <div style="background:#fff;padding:2rem;border-radius:16px;max-width:400px;width:90%;margin:auto;position:relative;">
+                    <span style="position:absolute;top:10px;right:20px;cursor:pointer;font-size:1.5rem;" id="bookingModalCloseBtn">&times;</span>
+                    <h3>Book Appointment</h3>
+                    <form id="bookingForm">
+                        <input type="text" name="petOwner" placeholder="Your Name" required><br>
+                        <input type="email" name="email" placeholder="Your Email" required><br>
+                        <select name="doctor" id="doctorSelect" required></select><br>
+                        <select name="slot" id="slotSelect" required></select><br>
+                        <textarea name="bookingInfo" rows="2" placeholder="Additional information about your booking (e.g., pet symptoms, preferred doctor, etc.)"></textarea><br>
+                        <button type="submit" style="margin-top:1rem;background:#2bb7a7;color:#fff;border:none;padding:0.7rem 2rem;border-radius:30px;cursor:pointer;font-weight:700;">Book</button>
+                    </form>
+                    <div id="bookingMsg" style="margin-top:1rem;"></div>
+                </div>
+            </div>
+            <section class="services">
+            <div class="service">
+                <img src="https://img.icons8.com/color/120/000000/dog.png" alt="Virtual Consultations">
+                <div class="service-details">
+                    <h2>Virtual Consultations</h2>
+                    <p>Connect with our experienced veterinarians from the comfort of your home. Our virtual consultations allow you to discuss your pet’s health, behavior, and nutrition without the stress of travel.</p>
+                    <ul>
+                        <li>Video or phone appointments</li>
+                        <li>Personalized advice and care plans</li>
+                        <li>Follow-up support</li>
+                        <li>Convenient scheduling</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service">
+                <img src="https://img.icons8.com/color/120/000000/pill.png" alt="Prescription Refills">
+                <div class="service-details">
+                    <h2>Prescription Refills</h2>
+                    <p>Order your pet’s medications online and have them delivered to your door. We offer fast, secure prescription refills for ongoing treatments and chronic conditions.</p>
+                    <ul>
+                        <li>Easy online requests</li>
+                        <li>Home delivery options</li>
+                        <li>Medication reminders</li>
+                        <li>Consultation for new prescriptions</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service">
+                <img src="https://openmoji.org/data/color/svg/1F6D1.svg" alt="Emergency Advice">
+                <div class="service-details">
+                    <h2>Emergency Advice</h2>
+                    <p>Get immediate help for urgent pet health concerns. Our team is available to provide guidance and recommend next steps in case of emergencies.</p>
+                    <ul>
+                        <li>24/7 chat and call support</li>
+                        <li>First aid instructions</li>
+                        <li>Referral to local emergency clinics</li>
+                        <li>Peace of mind for pet owners</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service">
+                <img src="https://img.icons8.com/color/120/000000/cat.png" alt="Wellness & Preventive Care">
+                <div class="service-details">
+                    <h2>Wellness & Preventive Care</h2>
+                    <p>Keep your pet healthy with regular checkups, vaccinations, and preventive care. Our wellness services are designed to catch issues early and keep your companion thriving.</p>
+                    <ul>
+                        <li>Annual exams</li>
+                        <li>Vaccinations</li>
+                        <li>Parasite prevention</li>
+                        <li>Diet and exercise counseling</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="service">
+                <img src="https://img.icons8.com/color/120/000000/medical-doctor.png" alt="Specialist Referrals">
+                <div class="service-details">
+                    <h2>Specialist Referrals</h2>
+                    <p>If your pet needs advanced care, we can connect you with trusted specialists in surgery, dermatology, cardiology, and more.</p>
+                    <ul>
+                        <li>Access to a network of experts</li>
+                        <li>Seamless referral process</li>
+                        <li>Support throughout treatment</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="contact" id="contact" aria-label="Contact" style="max-width:420px;margin:3rem auto 2rem auto;background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(43,183,167,0.08);padding:2rem;">
+    <!-- Contact section removed. Please visit the dedicated Contact page. -->
+    </section>
+</body>
+<script>
+// In-memory data for demo
+let doctors = [
+    {id: 1, name: "Dr. Smith", availability: ["2025-09-13 10:00", "2025-09-13 14:00"]},
+    {id: 2, name: "Dr. Lee", availability: ["2025-09-14 09:00", "2025-09-14 15:00"]}
+];
+let appointments = [];
+
+function openBookingModal() {
+    document.getElementById('bookingModal').style.display = 'flex';
+    const doctorSelect = document.getElementById('doctorSelect');
+    doctorSelect.innerHTML = '';
+    doctors.forEach(doc => {
+        const opt = document.createElement('option');
+        opt.value = doc.id;
+        opt.textContent = doc.name;
+        doctorSelect.appendChild(opt);
+    });
+    updateSlotSelect();
+}
+function closeBookingModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+    document.getElementById('bookingMsg').textContent = '';
+    document.getElementById('bookingForm').reset();
+}
+function getAvailableSlots(doctorId) {
+    const doctor = doctors.find(d => d.id == doctorId);
+    if (!doctor) return [];
+    const bookedSlots = appointments.filter(a => a.doctorId == doctorId).map(a => a.slot);
+    return doctor.availability.filter(slot => !bookedSlots.includes(slot));
+}
+function updateSlotSelect() {
+    const doctorId = document.getElementById('doctorSelect').value;
+    const slotSelect = document.getElementById('slotSelect');
+    slotSelect.innerHTML = '';
+    const slots = getAvailableSlots(doctorId);
+    if (slots.length === 0) {
+        const opt = document.createElement('option');
+        opt.value = '';
+        opt.textContent = 'No slots available';
+        slotSelect.appendChild(opt);
+    } else {
+        slots.forEach(slot => {
+            const opt = document.createElement('option');
+            opt.value = slot;
+            opt.textContent = slot;
+            slotSelect.appendChild(opt);
+        });
+    }
+}
+document.getElementById('bookNavBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    openBookingModal();
+});
+document.getElementById('doctorSelect').addEventListener('change', updateSlotSelect);
+document.getElementById('bookingModalCloseBtn').addEventListener('click', closeBookingModal);
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const petOwner = form.petOwner.value;
+    const email = form.email.value;
+    const doctorId = form.doctor.value;
+    const slot = form.slot.value;
+    const bookingInfo = form.bookingInfo.value;
+    if (!doctorId || !slot) {
+        document.getElementById('bookingMsg').textContent = 'Please select a doctor and slot.';
+        return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+        document.getElementById('bookingMsg').textContent = 'Please enter a valid email address.';
+        return;
+    }
+    const bookingId = 'B' + Date.now() + Math.floor(Math.random()*1000);
+    appointments.push({
+        id: bookingId,
+        doctorId: Number(doctorId),
+        petOwnerName: petOwner,
+        email,
+        slot,
+        bookingInfo,
+        status: 'Booked'
+    });
+    document.getElementById('bookingMsg').textContent = 'Appointment booked!';
+    updateSlotSelect();
+    setTimeout(closeBookingModal, 1500);
+});
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    const message = document.getElementById('contactMsg').value;
+    if (!name || !email || !message) {
+        document.getElementById('formMsg').textContent = 'Please fill all fields.';
+        return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+        document.getElementById('formMsg').textContent = 'Please enter a valid email address.';
+        return;
+    }
+    document.getElementById('formMsg').textContent = 'Thank you for reaching out! We will get back to you soon.';
+    document.getElementById('contactForm').reset();
+});
+</script>
+</html>

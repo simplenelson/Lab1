@@ -1,45 +1,38 @@
-# Product Requirements Document (PRD)
+# Pawsitive Care Vet Clinic – Application Overview
 
-**Title:** Veterinarian Clinic Landing Page (Virtual Appointments)
-
-## Objective
-Create a simple, modern landing page for a veterinarian clinic that highlights virtual appointment services and encourages users to book online.
+This web application allows pet owners to book virtual appointments, view services, and contact the clinic online. It is a static HTML/CSS/JS app with no backend, designed for easy deployment and use.
 
 ## Features
+- **Landing Page:** Overview of the clinic, testimonials, and navigation.
+- **Book Appointment:** Book a virtual appointment with a vet. Dynamic doctor/slot selection, input validation, and confirmation feedback.
+- **Services:** Detailed descriptions of all services offered.
+- **Contact:** Dedicated contact page with a form and clinic details.
 
-1. **Header**
-   - Clinic name/logo
-   - Navigation (Home, Services, Book Appointment, Contact)
+## How to Use
+1. **Open the app in your browser.**
+2. **Navigate using the top menu:**
+   - Home: Main landing page
+   - Services: See all available services
+   - Book Appointment: Fill out the form to book a virtual visit
+   - Contact: Send a message or find clinic contact info
+3. **Book an appointment:**
+   - Select a doctor and available time slot
+   - Enter your details and a description (max 500 characters)
+   - Submit to receive confirmation
+4. **Contact the clinic:**
+   - Use the Contact page for inquiries or support
 
-2. **Hero Section**
-   - Catchy headline (e.g., "Care for Your Pets, Virtually!")
-   - Brief description of virtual appointments
-   - Prominent "Book Now" button
+## Technical Notes
+- All data is stored in-memory (appointments are not persistent)
+- No authentication or backend integration
+- Responsive and accessible design
 
-3. **Services Overview**
-   - List of key services (e.g., virtual consultations, prescription refills, emergency advice)
-   - Simple icons or images for each service
+## File Structure
+- `vet-landing-prototype.html` – Main landing page
+- `services.html` – Services page
+- `book-appointment.html` – Appointment booking
+- `contact.html` – Contact form and info
+- `playwright.config.js`, `tests/` – Automated test setup (optional)
 
-4. **How It Works**
-   - Step-by-step guide (e.g., Book → Consult → Care)
-   - Visuals or icons for each step
-
-5. **Testimonials**
-   - 1-2 short quotes from satisfied pet owners
-
-6. **Contact Section**
-   - Email, phone, address
-   - Simple contact form (name, email, message)
-
-7. **Footer**
-   - Social media links
-   - Copyright
-
-## Design
-- Clean, friendly, and professional look
-- Pet-themed colors (e.g., teal, white, soft orange)
-- Responsive for mobile and desktop
-
-## Technical
-- HTML, CSS, and minimal JavaScript (for interactivity, e.g., form validation)
-- No backend required for prototype
+---
+For requirements and planning, see `PRD.md`.

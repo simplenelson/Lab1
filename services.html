@@ -6,23 +6,63 @@
     <title>Veterinary Services - Pawsitive Care</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-primary: #f6fbf9;
+            --bg-secondary: #fff;
+            --bg-header: #2bb7a7;
+            --text-primary: #333;
+            --text-secondary: #fff;
+            --text-accent: #2bb7a7;
+            --shadow-color: rgba(43,183,167,0.08);
+            --shadow-img: rgba(43,183,167,0.12);
+            --modal-bg: rgba(0,0,0,0.4);
+        }
+        body.dark-mode {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --bg-header: #1a5a52;
+            --text-primary: #e0e0e0;
+            --text-secondary: #e0e0e0;
+            --text-accent: #3dd4c1;
+            --shadow-color: rgba(0,0,0,0.3);
+            --shadow-img: rgba(0,0,0,0.4);
+            --modal-bg: rgba(0,0,0,0.7);
+        }
+        .dark-mode-toggle {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .dark-mode-toggle:hover {
+            background: rgba(255,255,255,0.3);
+        }
         body {
             font-family: 'Montserrat', Arial, sans-serif;
             margin: 0;
-            background: #f6fbf9;
-            color: #333;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         header {
-            background: #2bb7a7;
-            color: #fff;
+            background: var(--bg-header);
+            color: var(--text-secondary);
             padding: 1.5rem 0;
             text-align: center;
+            position: relative;
         }
         nav {
             margin-top: 1rem;
         }
         nav a {
-            color: #fff;
+            color: var(--text-secondary);
             margin: 0 1rem;
             text-decoration: none;
             font-weight: 700;
@@ -31,9 +71,9 @@
             max-width: 900px;
             margin: 2rem auto;
             padding: 2rem;
-            background: #fff;
+            background: var(--bg-secondary);
             border-radius: 16px;
-            box-shadow: 0 2px 8px rgba(43,183,167,0.08);
+            box-shadow: 0 2px 8px var(--shadow-color);
         }
         .service {
             display: flex;
@@ -44,14 +84,14 @@
         .service img {
             width: 120px;
             border-radius: 16px;
-            box-shadow: 0 2px 8px rgba(43,183,167,0.12);
+            box-shadow: 0 2px 8px var(--shadow-img);
         }
         .service-details {
             flex: 1;
         }
         .service-details h2 {
             margin-top: 0;
-            color: #2bb7a7;
+            color: var(--text-accent);
         }
         .service-details ul {
             margin: 0.5rem 0 0 1rem;
@@ -64,11 +104,18 @@
             .service img {
                 margin-bottom: 1rem;
             }
+            .dark-mode-toggle {
+                top: 1rem;
+                right: 1rem;
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
+        <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">🌙 Dark</button>
         <h1>Pawsitive Care Vet Clinic</h1>
         <nav>
             <a href="vet-landing-prototype.html">Home</a>
@@ -166,6 +213,20 @@
     </section>
 </body>
 <script>
+// Dark Mode Toggle
+const darkModeToggle = document.getElementById('darkModeToggle');
+const isDarkMode = localStorage.getItem('darkMode') === 'true';
+if (isDarkMode) {
+    document.body.classList.add('dark-mode');
+    darkModeToggle.textContent = '☀️ Light';
+}
+darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDark);
+    darkModeToggle.textContent = isDark ? '☀️ Light' : '🌙 Dark';
+});
+
 // In-memory data for demo
 let doctors = [
     {id: 1, name: "Dr. Smith", availability: ["2025-09-13 10:00", "2025-09-13 14:00"]},

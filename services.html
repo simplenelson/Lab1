@@ -312,21 +312,5 @@ document.getElementById('bookingForm').addEventListener('submit', function(e) {
     updateSlotSelect();
     setTimeout(closeBookingModal, 1500);
 });
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('contactName').value;
-    const email = document.getElementById('contactEmail').value;
-    const message = document.getElementById('contactMsg').value;
-    if (!name || !email || !message) {
-        document.getElementById('formMsg').textContent = 'Please fill all fields.';
-        return;
-    }
-    if (!/^\S+@\S+\.\S+$/.test(email)) {
-        document.getElementById('formMsg').textContent = 'Please enter a valid email address.';
-        return;
-    }
-    document.getElementById('formMsg').textContent = 'Thank you for reaching out! We will get back to you soon.';
-    document.getElementById('contactForm').reset();
-});
 </script>
 </html>
